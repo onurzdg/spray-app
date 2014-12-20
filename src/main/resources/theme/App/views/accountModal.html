@@ -1,0 +1,27 @@
+<div class="messageBox tabbable">
+    <div class="modal-header">
+        <h4 class="muted">Account Settings</h4>
+    </div>
+    <div class="modal-body account-modal">
+        <ul class="nav nav-tabs" id="account-settings-tab">
+            <li class="active" ><a href="#general" data-toggle="tab"><i class="icon icon-cogs"></i> General</a></li>
+            <li><a href="#keys" data-toggle="tab"><i class="icon icon-key"></i> API Keys</a></li>
+            <li><a href="#payments" data-toggle="tab"><i class="icon icon-credit-card"></i> Payments</a></li>
+        </ul>
+            <div class="tab-content account-modal">
+                <div class="tab-pane active" id="general">
+                    <!--ko compose: {view: 'accountSettings'} --><!--/ko-->
+                </div>
+                <div class="tab-pane" id="keys">
+                    <!--ko compose: {view: 'accountAPIKeys'} --><!--/ko-->
+                </div>
+                <div class="tab-pane" id="payments">
+                    <!--ko compose: {view: 'accountPayments'} --><!--/ko-->
+                </div>
+            </div>
+    </div>
+
+    <div class="modal-footer">
+        <button class="btn btn-primary" data-bind="click:ok">Done</button>
+    </div>
+</div>

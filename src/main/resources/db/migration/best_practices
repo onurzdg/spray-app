@@ -1,0 +1,13 @@
+-run sbt flywayMigrate
+- http://www.jeremyjarrell.com/using-flyway-db-with-distributed-version-control/
+
+ 1) Create idempotent migrations: That is, we should be able to apply the same script without additional effects. For instance,
+ write the script so that it adds a column if it does not already exist.
+ IF NOT EXISTS ((SELECT * FROM information_schema.columns WHERE table_schema=DATABASE() AND table_name='customers' AND column_name='email_address')) THEN
+      ALTER TABLE customers ADD email_address VARCHAR(256);
+ END IF;
+
+
+ 2) If a certain script should not be executed in production db because it might take a while to execute it, it should
+  be executed by a DB administrator at night and this script should be put in production folder. Development and
+  Staging environments will still read and apply this script, but production will not.

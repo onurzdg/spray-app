@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true">
+    <contextName>app</contextName>
+
+    <jmxConfigurator />
+
+    <property name="PATTERN" value='%-30(%date{"HH:mm:ss.SSS"} [%thread] %X{akkaSource} %-5level) %logger{36} - %msg%n'/>
+
+    <property name="ACCESS-LOG-PATTERN" value='%-10(%date{"HH:mm:ss.SSS"}  %-5level) %logger{36} - %msg%n'/>
+
+    <property name="METRICS" value='%date{"HH:mm:ss.SSS"} - %msg%n'/>
+
+    <!--trace < debug < info < warn < error-->
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <filter class="logback.filter.StdOut" />
+        <target>System.out</target>
+        <encoder>
+            <pattern>${PATTERN}</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="MAIN-FILE" class="ch.qos.logback.core.FileAppender">
+        <file>logs/application.log</file>
+        <append>true</append>
+        <encoder>
+            <pattern>${PATTERN}</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="METRICS-FILE" class="ch.qos.logback.core.FileAppender">
+        <file>logs/metrics.log</file>
+        <append>true</append>
+        <encoder>
+            <pattern>${METRICS}</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="ACCESS-LOG" class="ch.qos.logback.core.FileAppender">
+        <file>logs/access.log</file>
+        <append>true</append>
+        <encoder>
+            <pattern>${ACCESS-LOG-PATTERN}</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="STDERR" class="ch.qos.logback.core.ConsoleAppender">
+        <filter class="logback.filter.StdErr" />
+        <target>System.err</target>
+        <encoder>
+            <pattern>${PATTERN}</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="ERROR-FILE" class="ch.qos.logback.core.FileAppender">
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>WARN</level>
+        </filter>
+        <file>logs/error.log</file>
+        <append>true</append>
+        <encoder>
+            <pattern>${PATTERN}</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="SPECIAL-FILE" class="ch.qos.logback.core.FileAppender">
+        <file>logs/special.log</file>
+        <append>true</append>
+        <encoder>
+            <pattern>${PATTERN}</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="SLICK-FILE" class="ch.qos.logback.core.FileAppender">
+        <file>logs/slick.log</file>
+        <append>true</append>
+        <encoder>
+            <pattern>${PATTERN}</pattern>
+        </encoder>
+    </appender>
+
+    <logger name="scala.slick" level="INFO" additivity="false">
+        <appender-ref ref="SLICK-FILE"/>
+    </logger>
+
+    <logger name="akka" level="INFO"/>
+
+    <logger name="metrics" level="INFO" additivity="false">
+        <appender-ref ref="METRICS-FILE"/>
+    </logger>
+
+    <logger name="spray" level="INFO">
+        <appender-ref ref="ACCESS-LOG"/>
+    </logger>
+
+    <root level="DEBUG">
+        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="MAIN-FILE"/>
+        <appender-ref ref="STDERR"/>
+        <appender-ref ref="ERROR-FILE"/>
+    </root>
+
+    <logger name="special" level="DEBUG" additivity="false"> <!--do not let logging go to ancestor loggers-->
+        <appender-ref ref="SPECIAL-FILE"/>
+    </logger>
+
+
+    <logger name="com.jolbox.bonecp" level="DEBUG"/>
+
+</configuration>
+

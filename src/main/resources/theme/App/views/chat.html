@@ -1,0 +1,11 @@
+﻿<div class="view-content jumbotron">
+    <div class="chat-messages">
+    <ul data-bind="foreach: messages">
+        <li class="chat-message" data-bind="text: message"></li>
+    </ul>
+    </div>
+    <div class="chat-input">
+        <textarea class="chat-input" type="text" data-bind="value: newChatMessage"></textarea>
+        <input id="chat-button" data-bind="click: sendChatMessage" type="submit"></input>
+    </div>
+</div>

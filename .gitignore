@@ -1,0 +1,9 @@
+/.idea/
+/.idea_modules/
+/logs/
+target/
+projectFilesBackup/
+lib_managed/
+src_managed/
+test-output/
+*.iml
