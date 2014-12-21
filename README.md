@@ -1,6 +1,6 @@
 Spray-Seeder App
 ===================
-This small app is intended to get people writing web services/applications quickly with Spray
+This small app is intended to get people writing web services/applications quickly with [Spray](http://spray.io/)
 without having to spend a lot of time on boilerplate project set-up. The main reason I felt compelled to
 make this work public is that many of the frameworks used in this small application are presented on the Internet
 with shallow "Helloworld" examples that are fraught with misleading and wrong patterns.
