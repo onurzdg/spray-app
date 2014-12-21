@@ -14,7 +14,6 @@ package object api {
       private[api] val signIn = "/signin"
       private[api] val signUp = "/signUp"
     }
-
   }
   val ApiRoot = "api"
 
@@ -34,8 +33,5 @@ package object api {
       implicit  val system = inject [ActorSystem]
       AkkaInjectable.injectActorRef[SprayServiceActor]("spray-service")
     }
-
   }
-
-
 }

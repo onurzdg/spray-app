@@ -46,6 +46,4 @@ package object metrics {
   trait MetricsInstrumented extends InstrumentedBuilder {
     override val metricRegistry =  MetricsInstrumented.metricRegistry
   }
-
-
 }

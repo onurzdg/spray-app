@@ -13,7 +13,6 @@ object TypeMappers {
     implicit val httpIpTypeMapper = MappedColumnType.base[RemoteAddress,String]( _.value, RemoteAddress(_))
   }
 
-
   trait LocalDateTimeTypeMapper {
     implicit val dateTimeTypeMapper = MappedColumnType.base[LocalDateTime, Timestamp](
     { case (dt: LocalDateTime) => new Timestamp(dt.toInstant(ZoneOffset.UTC).getEpochSecond * 1000 ) },
@@ -28,9 +27,7 @@ object TypeMappers {
     implicit val nameTypeMapper = MappedColumnType.base[Name, String](a => a.name, new Name(_))
   }
 
-
   trait PasswordTypeMapper {
-
     // only allow encrypted passwords to be persisted
     implicit val passwordTypeMapper = MappedColumnType.base[Password, String](
     { case EncryptedPassword(pwHash) => pwHash
@@ -38,7 +35,6 @@ object TypeMappers {
     },
     { case pwHash => EncryptedPassword(pwHash) })
   }
-
 }
 
 

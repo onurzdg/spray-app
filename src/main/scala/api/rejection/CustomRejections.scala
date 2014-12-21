@@ -17,9 +17,3 @@ trait CustomRejections {
 
 private[api]
 object CustomRejections extends CustomRejections
-
-
-
-
-
-

@@ -30,5 +30,4 @@ trait ExceptionMapper { self: CommonTraits =>
           None, List("There is a problem with our servers, please wait and try again in a few minutes.")))
     }
   }
-
 }

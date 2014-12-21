@@ -24,5 +24,3 @@ trait Picture { self: CommonTraits =>
     }
   }
 }
-
-

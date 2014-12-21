@@ -10,5 +10,3 @@ object SignIn extends SignInJsonProtocol
 trait SignInJsonProtocol extends PasswordJsonProtocol {
   implicit val ajaxSignInFormat = jsonFormat3(SignIn.apply)
 }
-
-

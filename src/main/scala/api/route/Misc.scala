@@ -58,6 +58,4 @@ trait Misc { self: CommonTraits =>
     case  InvalidCookieRejection(cookieName) :: _ =>
       invalidCookieRoute(cookieName)
   }
-
-
 }

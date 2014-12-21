@@ -55,12 +55,3 @@ object SiteSettings extends Settings[SiteSettings]("site") {
   def apply(): SiteSettings = SiteSettings(ConfigFactory.load())
 
 }
-
-
-
-
-
-
-
-
-

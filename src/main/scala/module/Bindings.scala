@@ -18,7 +18,6 @@ object Bindings {
   implicit val cryptoModule = new CryptoModule
   implicit val appConfigModule = new AppConfigModule
 
-
   lazy implicit val appInjector = {
     dbModule :: metricsModule :: appConfigModule :: new ActorsModule :: new ChatModule ::
       cryptoModule :: accountsModule :: new HttpModule

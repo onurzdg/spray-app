@@ -8,7 +8,6 @@ import html._
 private[api]
 trait Root extends {self: CommonTraits with Misc with PlayTwirlSupport =>
 
-
   def rootRoute(implicit session: SessionCookie) = {
     get {
       path("") {

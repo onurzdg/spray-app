@@ -15,5 +15,3 @@ private[api]
 trait ResponseJsonProtocol extends DefaultJsonProtocol  {
   implicit def responseResultFormat[T:JsonFormat] = jsonFormat4(RequestResponse.apply[T])
 }
-
-

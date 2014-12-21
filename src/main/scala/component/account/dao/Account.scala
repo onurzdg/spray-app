@@ -120,7 +120,3 @@ class Accounts extends MetricsInstrumented with Mappers {
   def deleteAccount(id: Long)(implicit session: Session): Boolean =
     operationSuccessMapper(qRetrieveAccount(id).delete)
 }
-
-
-
-

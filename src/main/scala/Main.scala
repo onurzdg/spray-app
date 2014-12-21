@@ -29,6 +29,5 @@ object Main extends App with SSLSupported with AkkaInjectable with Injectable {
   val secondConfig = Some(serverSettings.copy(sslEncryption = false))
   // the only reason we start an additional web server is to redirect http requests to https
   IO(Http) ! Http.Bind(service, siteSettings.interface, port = 8080, settings = secondConfig)
-
 }
 

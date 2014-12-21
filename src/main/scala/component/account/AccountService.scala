@@ -157,26 +157,27 @@ class AccountService(private val db: Database,
   private def updateAccountSignInSuccess(account:Account,ipAddress:Option[RemoteAddress]) : Account = account.copy(
     loginCount = account.loginCount+1
     ,failedLoginCount = 0
-    , lastLoginAt = account.currentLoginAt
-    , currentLoginAt = Some(LocalDateTime.now())
-    , lastLoginIp = account.currentLoginIp
-    , currentLoginIp = ipAddress
+    ,lastLoginAt = account.currentLoginAt
+    ,currentLoginAt = Some(LocalDateTime.now())
+    ,lastLoginIp = account.currentLoginIp
+    ,currentLoginIp = ipAddress
   )
 
   // Update account to reflect a failed sign in attempt
   private def updateAccountSignInFailure(account:Account,ipAddress:Option[RemoteAddress]) : Account = account.copy(
     failedLoginCount = account.failedLoginCount+1
-    , lockedOutUntil = if (siteSettings.accountLockout && siteSettings.accountLockoutMaxAttempts < account.failedLoginCount + 1) Some(LocalDateTime.now.plus(siteSettings.accountLockoutPeriod * 1000, ChronoUnit.MILLIS)) else None
-    , lastLoginIp = account.currentLoginIp
-    , currentLoginIp = ipAddress
+    ,lockedOutUntil =
+      if (siteSettings.accountLockout && siteSettings.accountLockoutMaxAttempts < account.failedLoginCount + 1)
+        Some(LocalDateTime.now.plus(siteSettings.accountLockoutPeriod * 1000, ChronoUnit.MILLIS)) else None
+    ,lastLoginIp = account.currentLoginIp
+    ,currentLoginIp = ipAddress
   )
 
   // Update account to reflect a failed sign in attempt using a remember-me cookie
   private def updateAccountRememberMeFailure(account:Account,ipAddress:Option[RemoteAddress],lock:Boolean) : Account = account.copy(
     failedLoginCount = account.failedLoginCount+1
-    , lockedOutUntil = if (lock || (siteSettings.accountLockout && siteSettings.accountLockoutMaxAttempts < account.failedLoginCount + 1)) Some(LocalDateTime.now.plus(siteSettings.accountLockoutPeriod * 1000, ChronoUnit.MILLIS)) else None
-    , lastLoginIp = account.currentLoginIp
-    , currentLoginIp = ipAddress
+    ,lockedOutUntil = if (lock || (siteSettings.accountLockout && siteSettings.accountLockoutMaxAttempts < account.failedLoginCount + 1)) Some(LocalDateTime.now.plus(siteSettings.accountLockoutPeriod * 1000, ChronoUnit.MILLIS)) else None
+    ,lastLoginIp = account.currentLoginIp
+    ,currentLoginIp = ipAddress
   )
-
 }

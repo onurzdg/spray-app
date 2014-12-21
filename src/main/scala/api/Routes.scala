@@ -28,10 +28,10 @@ trait Routes extends CommonTraits with ExceptionMapper with HttpLogger with Reje
         routeHttpToHttps ~ handleRejections(mainRejectionHandler) {
           getFromResourceDirectory(api.resourceDir) ~
             scheme(api.scheme.https) {
-            handleRejections(unrestrictedAPIsRejectionHandler) {
-             unRestrictedAPIs()
-            }
-          } ~ scheme(api.scheme.https) {
+              handleRejections(unrestrictedAPIsRejectionHandler) {
+                unRestrictedAPIs()
+              }
+            } ~ scheme(api.scheme.https) {
             handleRejections(restrictedAPIsRejectionHandler) {
               optionalCookies {
                 case Some(_) =>
@@ -54,7 +54,6 @@ trait Routes extends CommonTraits with ExceptionMapper with HttpLogger with Reje
         }
       }
     }
-  //}
 
   def decompressCompress = decompressRequest() & compressResponse(Gzip, Deflate, NoEncoding)
 

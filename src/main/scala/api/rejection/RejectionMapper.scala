@@ -80,5 +80,4 @@ trait RejectionMapper { self: CommonTraits =>
     case _ =>
       complete(StatusCodes.BadRequest, RequestResponse(false, None: Option[Int], None, List("bad request")))
   }
-
 }

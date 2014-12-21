@@ -75,5 +75,3 @@ object BoneCPSettings extends Settings[BoneCPSettings]("bonecp") {
 
   def apply(): BoneCPSettings = BoneCPSettings(ConfigFactory.load())
 }
-
-

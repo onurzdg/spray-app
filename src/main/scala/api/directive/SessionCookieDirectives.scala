@@ -86,6 +86,3 @@ trait SessionCookieDirectives { self: CommonTraits =>
       session.expires, session.maxAge, session.domain,
       session.path, session.secure, session.httpOnly, session.extension)
 }
-
-
-

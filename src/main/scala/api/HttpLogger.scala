@@ -23,5 +23,4 @@ trait HttpLogger {self: CommonTraits =>
     case response ⇒ Some(
       LogEntry("Non-200 response for\n Request : " + request + "\n Response: " + response,  WarningLevel))
   }
-
 }

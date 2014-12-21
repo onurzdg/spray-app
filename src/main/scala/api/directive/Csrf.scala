@@ -41,6 +41,4 @@ trait Csfr { self: CommonTraits =>
       case _ => pass
 
     })
-
-
 }

@@ -53,6 +53,3 @@ trait PasswordJsonProtocol extends DefaultJsonProtocol {
     }
   }
 }
-
-
-

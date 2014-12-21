@@ -20,13 +20,3 @@ case class SessionCookie(data: Map[String, String] = Map.empty[String, String],
   def -(key: String) = copy(data - key)
   def apply(key: String) = data(key)
 }
-
-
-
-
-
-
-
-
-
-

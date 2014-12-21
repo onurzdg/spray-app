@@ -12,5 +12,4 @@ package object crypto {
     binding to injected[Decryptor]
     binding to injected[CryptoService]
   }
-
 }

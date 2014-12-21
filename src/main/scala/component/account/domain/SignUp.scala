@@ -16,5 +16,3 @@ trait SignUpJsonProtocol extends PasswordJsonProtocol {
 trait SignUpImplicitsLow {
   implicit def signUpToAccount(signUp:SignUp): Account =  Account(name=signUp.name,email=signUp.email,password=signUp.password)
 }
-
-

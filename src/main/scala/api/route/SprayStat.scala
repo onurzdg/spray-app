@@ -38,5 +38,4 @@ trait SprayStat {self: CommonTraits =>
         "Max open connections  : " + stats.maxOpenConnections + '\n' +
         "Requests timed out    : " + stats.requestTimeouts + '\n'
     }
-
 }
