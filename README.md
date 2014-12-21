@@ -1,4 +1,4 @@
-Spray-Seeder App
+Spray Seeder App
 ===================
 This small app is intended to get people writing web services/applications quickly with [Spray](http://spray.io/)
 without having to spend a lot of time on boilerplate project set-up. The main reason I felt compelled to
@@ -101,9 +101,6 @@ Deployment
 ------------------------------------
  * Install git
  * Clone example project:
-```
-git clone git://github.com/onurzdg/spray-app.git
-```
  * Install sbt. See http://www.scala-sbt.org/release/tutorial/Setup.html
  * Type `sbt` in the project directory to start it
  * Type compile to compile the project
