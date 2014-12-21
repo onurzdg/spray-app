@@ -20,7 +20,7 @@ Thus, if you compare both projects, you will see that they differ in design and 
 In addition, Spray-SPA, not surprisingly, does not compile with the latest Scala and latest versions of these frameworks.
 In that sense, this project also presents a more modern codebase with the most recent versions of the frameworks in question employed.
 However, I did not have an incentive to change the structure of the front-end and update the libraries used on that front.
-My goal was to re-write the back-end and make slight improvements on the front-end to reconcile it with the changes happening
+My goal was to re-write the back-end and make slight improvements in the front-end to reconcile it with the changes happening
 in the back-end.
 
 
@@ -46,8 +46,8 @@ Database
 Security
 -----------------------------------
  I have written Spray directives to prevent cross-site request forgery(csrf). The routes 
- already go through this check. Cookie information is not stored in memory or database.
- They are robustly encrypted and verified on the back-end each time a request that requires authentication comes in.
+ already go through this check. Session management is cookie based and stateless. Cookie information is not stored in memory or database.
+ They are robustly encrypted and verified in the back-end each time a request that requires authentication comes in.
  I also wrote a directive("Privilege.hasAccess") for route authorization. This is not turned on in the codebase, but you can
  enable it by changing its implementation. This app requires [Java Cryptography Extension(JCE)]
  (http://www.oracle.com/technetwork/java/javase/downloads/jce8-download-2133166.html) due to the use 256-bit encryption
