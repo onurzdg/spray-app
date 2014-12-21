@@ -19,7 +19,7 @@ package object api {
 
   object scheme {
     private[api] val https = "https"
-    private[api] val http = "api"
+    private[api] val http = "http"
   }
 
   private[api] val resourceDir = "theme"
