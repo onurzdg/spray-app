@@ -1,7 +1,6 @@
 package component.account.dao
 
 import java.time.LocalDateTime
-import java.util.UUID
 
 import component.account.dao.TypeMappers._
 import component.account.domain._
@@ -11,9 +10,7 @@ import grizzled.slf4j.Logger
 import metrics.MetricsInstrumented
 import spray.http.RemoteAddress
 import storage.postgres.dbSimple._
-import scala.slick.jdbc.JdbcBackend.Session
 
-import scala.slick.lifted.TableQuery
 
 trait Mappers extends NameTypeMapper
 with EmailTypeMapper with PasswordTypeMapper with HttpIpTypeMapper
@@ -55,7 +52,7 @@ class AccountTable(tag: Tag) extends Table[Account](tag, "account") with Mappers
 
 
 private[account]
-class Accounts extends TableQuery(new AccountTable(_)) with MetricsInstrumented with Mappers {
+class Accounts extends MetricsInstrumented with Mappers {
   implicit val dbExecContext = ExecutionContexts.dbExecutionContext
   import storage.operationSuccessMapper
   import scala.slick.jdbc.JdbcBackend.Session

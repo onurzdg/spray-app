@@ -64,6 +64,8 @@ Logging & Application-level Metrics
 Java 8
 -----------------------------------
  It's required for the encoding and date-time libraries used in the project.
+ In case you are having difficulty getting sbt to use a Java8 JDK, I would highly recommend using [jenv](https://github.com/gcuisinier/jenv)
+ Usually, all it takes is typing a command like `jenv local oracle64-1.8.0.11` in the project directory 
   
 Testing
 -----------------------------------

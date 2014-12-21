@@ -1,10 +1,8 @@
 package component.account.dao
 
-
 import component.account.domain.{Email, Picture}
 import storage.postgres.dbSimple._
 
-import scala.slick.lifted.TableQuery
 
 private[account]
 class PicturesTable(tag: Tag) extends Table[Picture](tag, "picture") {    //Slick Table
@@ -18,9 +16,8 @@ def id = column[Option[Long]]("pic_id", O.PrimaryKey, O.AutoInc)
   def idx = index("idx_acc_id", (id, accountId), unique = true)
 }
 
-
 private[account]
-class Pictures extends TableQuery(new PicturesTable(_)) {
+class Pictures  {
   import storage.operationSuccessMapper
 
   val accounts = TableQuery[AccountTable]
@@ -35,10 +32,6 @@ class Pictures extends TableQuery(new PicturesTable(_)) {
 
   private val qRetrievePictureUrlById = Compiled( (id: Column[Long]) =>
     for {pic <- pictures if pic.id === id} yield pic.url )
-
-  /*private def qRetrievePictureByIdCondition(id: Long) =
-    for {pic <- pictures if pic.id === id
-         acc <- pic.account if acc.email === Email("someEmail@domain.com")} yield pic*/
 
   private def qRetrievePicturesWithEmailInnerJoin =
     for {
