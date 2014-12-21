@@ -100,7 +100,7 @@ Scalability
 Deployment
 ------------------------------------
  * Install git
- * Clone example project:
+ * Clone example project
  * Install sbt. See http://www.scala-sbt.org/release/tutorial/Setup.html
  * Type `sbt` in the project directory to start it
  * Type compile to compile the project
