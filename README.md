@@ -39,7 +39,7 @@ Database
  "EnhancedPostgresDriver" trait and hook it up with one of the default drivers in [Slick](http://slick.typesafe.com/) and 
  include LocalDateTimeTypeMapper in the mappers for "AccountTable".
  Slick queries are [pre-compiled](http://slick.typesafe.com/doc/2.1.0/queries.html#compiled-queries) for performance reasons.
- Database is already configured to use [Flyway](http://flywaydb.org/) to manage database schema changes. 
+ Application is already configured to use [Flyway](http://flywaydb.org/) to manage database schema changes. 
  Database access is also configured to use the [BoneCp](http://jolbox.com/) connection pool.
  
  
